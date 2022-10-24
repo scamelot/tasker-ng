@@ -10,12 +10,14 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { ReportComponent } from './report/report.component';
 import { ReportItemComponent } from './report-item/report-item.component';
 import { ReportSummaryComponent } from './report-summary/report-summary.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([{ path: '', component: AppComponent }]),
+    FontAwesomeModule,
   ],
   declarations: [AppComponent, TopBarComponent, TaskComponent, TaskDetailComponent, ReportComponent, ReportItemComponent, ReportSummaryComponent],
   bootstrap: [AppComponent],
