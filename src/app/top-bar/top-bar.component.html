@@ -1,12 +1,9 @@
-<nav class="navbar bg-base-100 flex justify-between"><h2>Tasker</h2>
-<div *ngIf="isLoggedin; else loggedOut" class="m-4">
-    <div class="flex justify-between w-48">
+<nav class="navbar bg-base-100 flex justify-around">
+    <h2>Tasker</h2>
+<div *ngIf="isLoggedin; else loggedOut" class="flex justify-between w-80">
         <a routerLink='/feed'>View Reports</a>
         <a routerLink='/profile'>Add a Task</a>
-    </div>
-    <div>
     <button type="button" id="logout" routerLink="/logout">Logout</button>
-    </div>
 </div>
 <ng-template #loggedOut>
     <button type="button" id="login" routerLink="/login">Log In</button>
