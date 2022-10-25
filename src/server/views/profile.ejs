@@ -1,0 +1,14 @@
+<%- include('partials/header', {user: user}) -%>
+<div class="container">
+    
+            <%- include('partials/tabs') %>
+            <%- include('partials/postForm') %>
+          
+      <div class="mt-4" id="taskList">
+        <%- include('partials/taskList') %>
+      </div>
+      <div class="row mt-5 d-flex justify-content-center w-100">
+        <a href='/feed' class="w-100 d-flex justify-content-center"><button class="btn btn-secondary w-75">Export</button></a>
+      </div>  
+</div>  
+<%- include('partials/footer') -%>

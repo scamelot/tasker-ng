@@ -1,0 +1,64 @@
+<div class="container">
+<form action="/post/createPost" enctype="multipart/form-data" method="POST">
+
+
+<div class="formContainer">
+<%- include('./taskbuttons') %>
+
+<%- include('options/imaging') %>
+<%- include('options/validation') %>
+<%- include('options/deploy') %>
+<%- include('options/tc') %>
+<%- include('options/incident') %>
+<%- include('options/breakfix') %>
+
+<div class="row d-flex justify-content-around">
+
+  <div class="col-md-auto">    
+    <label for="minutes" class="form-label">Time</label>
+    <select class="form-select input-dark" name="minutes">
+    <option value="15">15 minutes</option>
+    <option value="30" selected>30 minutes</option>
+    <option value="45">45 minutes</option>
+    <option value="60">60 minutes</option>
+    <option value="75">75 minutes</option>
+    <option value="90">90 minutes</option>
+    <option value="105">105 minutes</option>
+    <option value="120">120 minutes</option>
+  </select>
+
+  </div>
+
+    <div class="col-md-auto">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control input-dark" id="date" name="date"/>
+      </div>
+  <div class="col-md-auto">
+    <label for="state" class="form-label">State</label>
+    <select class="form-select input-dark" name="state">
+    <option value="In Progress">In Progress</option>
+    <option value="complete" selected>Complete</option>
+  </select>
+</div>
+</div>
+<div class="mb-3 mt-3">
+    <label for="title" class="form-label">Ticket #</label>
+    <input type="text" class="form-control input-dark" id="title" value="RITM" name="title" />
+</div>
+<div class="mb-3">
+  <label for="caption" class="form-label">Notes</label>
+  <textarea class="form-control input-dark" id="caption" name="caption"></textarea>
+</div>
+<div class="d-flex justify-content-end">
+<div class="mb-3 col-6">
+  <label for="imgUpload" class="form-label">Image</label>
+  <input type="file" class="form-control input-dark" id="imageUpload" name="file" />
+</div>
+  <div class="col-6 d-flex justify-content-end align-items-center"> 
+  <button type="submit" class="btn btn-success mt-3" name="submit" value="Save Manually">Save Task</button>
+  <!-- <button type="submit" class="btn btn-success mx-1 h-50" name="submit" value="Upload">Start</button> -->
+  </div>
+</div>
+  
+</div>
+</form>

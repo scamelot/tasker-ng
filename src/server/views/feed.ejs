@@ -1,0 +1,48 @@
+<%- include('partials/header', {user: user}) -%>
+<head>
+<meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
+</head>
+  <div class="container" id="viewContainer">
+      <%- include('partials/tabs') -%>
+       <%- include('partials/feedFilters') -%>
+    <div id="report">
+       <div class="row">
+        <h3 class="text-center mb-5">Technician Report for <%=tech == 0 ? 'All Techs' : tech%><br> <%=startDate %> to <%=endDate %></h3>
+       </div>
+       <div class="row">
+            <div class="col-6 d-flex flex-column align-items-center">
+              <h2>Validations</h2>
+          <% for (type in validations) { %>
+              <p><%= type %>: <%= validations[type] %></p>
+            <% } %>
+            <p>Success Rate: <%= ((validations.successful / validations.total) * 100).toFixed(2)%> %</p>
+        </div>
+        <div class="col-6 d-flex flex-column align-items-center">
+          <div class="col">
+          <h2>Imaging</h2>
+        </div>
+      <div class="col">
+       <p><i class='fa-brands fa-apple'></i> Mac: <%= images.mac %></p>
+       <p><i class='fa-brands fa-windows'></i> Windows: <%=images.windows %></p>
+      </div>
+      <div class="col">
+       <p><i class="fa-solid fa-building"></i> Onsite: <%=images.onsite %></p>
+       <p><i class="fa-solid fa-wifi"></i> Remote: <%=images.remote %></p>
+      </div>
+      </div>
+    </table>
+    <div id="taskList" class="w-100">
+      <%- include('partials/taskList', {user: user, posts: posts}) %>
+    </div>
+    </ul>
+        </div>
+       </div>
+       
+
+    <div class="d-flex justify-content-around">
+    <button class="btn btn-secondary w-25" onclick="exportToPDF('report')">Export to PDF</button>
+    <button class="btn btn-success w-25" onclick="exportToExcel()">Export to XLS</button>
+
+    </div>
+  </div>  
+<%- include('partials/footer') %>
