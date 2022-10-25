@@ -17,7 +17,7 @@ function updateView(post) {
       if (failures.length > 0) {
         //replace 'Fail' in each
         failures = failures.map(x => x.replace('Fail','')  )
-        post.caption += `\n<b class='text-danger'>Failed:</b> `
+        post.caption += `\nFailed:`
         failures.forEach(fail => {
           post.caption += `${fail} `
           post[`${fail}`] = true
@@ -26,7 +26,7 @@ function updateView(post) {
       else {
         let verified = Object.keys(post.allData).filter(key => key.includes('val'))
         verified = verified.map(x => x.replace('val', ''))
-        post.caption += `\n<b class='text-success'>Verified:</b> `
+        post.caption += `\nVerified: `
         verified.forEach(val => {
           post.caption +=`${val} `
           post.success = true
@@ -96,7 +96,7 @@ module.exports = {
       let validationSummary = {total: 0, successful: 0}
       let imagingSummary = {mac: 0, windows: 0, onsite: 0, remote: 0}
       let deploySummary = {}
-      posts.forEach(post => { 
+      posts.forEach(async post => { 
         updateView(post)
         let failures = Object.keys(post.allData).filter(key => key.includes("Fail"))
         for (fail of failures) {
@@ -124,8 +124,15 @@ module.exports = {
         else if (post.allData.imagingOS == 'Mac') {
           imagingSummary.mac += 1
         }
-              // deploy - number of deploys/recoveries - building heatmap?
-         
+              // TODO deploy - number of deploys/recoveries - building heatmap?
+
+
+        //update tech name to user-friendly 
+        console.log(post.user)
+        console.log(users[1]._id)
+        post.user = users.filter(x => x._id.toString() == post.user.toString())[0].userName
+        console.log(post.user)
+
       })
       //get tech userName
       let techName = ''

@@ -1,4 +1,16 @@
-<div *ngFor="let task of tasks">
-    <h2>{{task._id}}</h2>
-    <h4>{{task.taskType}}</h4>
+<div class="flex justify-center mt-24">
+<table class="table table-zebra">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Tech</td>
+            <td>Type</td>
+            <td>Notes</td>
+            <td>Time</td>
+        </tr>
+    </thead>
+    <tr *ngFor="let task of tasks" class="hover">
+      <app-report-item [task]="task"></app-report-item>
+    </tr>
+</table>
 </div>
