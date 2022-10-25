@@ -9,6 +9,8 @@ export class TopBarComponent implements OnInit {
 
   constructor() { }
 
+  isLoggedin = true
+
   ngOnInit(): void {
   }
 
